@@ -18,4 +18,4 @@
     - name: add repo for docker install
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu bionic stable
-        state: present
+        state: latest 
