@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  vars:
+    created_username: ubuntu
+  tasks:
+    - name: update & upgrade
+      apt:
+        update_cache: true
+        upgrade: true
+    - name: update and and install system packages
+      apt:
+        pkg:
+          - apitude
+          - neovim 
+          state: latest
+          update_cache: true
+    - name: add repo for docker install
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
